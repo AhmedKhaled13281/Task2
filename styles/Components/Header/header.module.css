@@ -4,7 +4,7 @@
     text-align: center;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 2%;
     width: 100%;
     padding: 25px 0;
 }
@@ -16,7 +16,7 @@
 .ul {
     display: flex;
     justify-content: space-around;
-    gap: 50px;
+    gap: 40px;
     width: 100%;
     padding: 10px 0;
 }
@@ -43,6 +43,7 @@
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
     border: none;
+    margin-right: 15px;
 }
 
 .Button:hover {

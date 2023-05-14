@@ -1,7 +1,17 @@
-import React from 'react'
+import React,  {useState} from 'react'
+import ModalForm from './Modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import classes from '../styles/Components/Header/header.module.css'
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+  const handleModal = () => setOpen((prev) => !prev)
+  const [formType , setFormType] = useState()
+  // const handleSigninModal = () => setOpen((prev) => !prev)
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
+
   return (
     <>
       <nav className={classes.nav}>
@@ -21,8 +31,12 @@ const Header = () => {
           </ul>
         </div>
         <div>
-            <button className={classes.Button}>Sign Up</button>
+            <button className={classes.Button} onClick={() => {handleModal() , setFormType('signup')}}>Sign Up</button>
+            <button className={classes.Button} onClick={() => {handleModal() , setFormType('signin')}}>Sign In</button>
         </div>
+        <ToastContainer />
+        {formType === 'signup' && <ModalForm open={open} handleModal={handleModal} formType="signup"/>}
+        {formType === 'signin' && <ModalForm open={open} handleModal={handleModal} formType="signin"/>}
       </nav>
     </>
   );
